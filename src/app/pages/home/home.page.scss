@@ -1,0 +1,119 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #a748e3;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.titulo-centrado {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bienvenido {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.usuario {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.subtitulo {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #6946dc;
+  font-size: 14px;
+}
+
+.animar-campo {
+  transition: transform 0.4s ease;
+}
+
+.activar-animacion {
+  transform: translateX(10px);
+}
+
+.fecha-nac {
+  width: 100%;
+  background-color: white;
+}
+
+@keyframes moverIzqDer {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+    background-color: #f0e6ff;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.activar-animacion {
+  animation: moverIzqDer 1s ease-in-out;
+}
+
+ion-input {
+  caret-color: #6946dc; 
+  color: black;
+}
+
+input {
+  caret-color: #6946dc;
+}
+
+.nivel-educacion {
+  right: 16px; 
+  position: absolute;
+}
+
+.nivel-educacion::part(icon) {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6946dc; 
+  pointer-events: none;
+}
