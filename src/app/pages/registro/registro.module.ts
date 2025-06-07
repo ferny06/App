@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { IonicModule } from '@ionic/angular';
 
+import { RegistroPageRoutingModule } from './registro-routing.module';
+
+import { RegistroPage } from './registro.page';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { FormatearFechaPipe } from 'src/app/pipes/formatear-fecha.pipe';
 
 
 @NgModule({
@@ -21,15 +19,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    RegistroPageRoutingModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
     
+    
   ],
-  declarations: [HomePage,
-   
-  ]
+  declarations: [RegistroPage, FormatearFechaPipe],
+  providers: [FormatearFechaPipe]
 })
-export class HomePageModule {}
+export class RegistroPageModule {}

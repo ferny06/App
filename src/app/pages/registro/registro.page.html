@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar class="color-vltstr">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>VioletStore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="centrar-card">
+    <ion-card class="card-registro">
+      <ion-card-header>
+        <ion-card-title class="centrado subtitulo">Regístrate</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input [(ngModel)]="nombre" class="animar-campo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input [(ngModel)]="apellido" class="animar-campo"></ion-input>
+        </ion-item>
+
+         <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="usuario" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+        <ion-item>
+          <ion-label>Nivel Educación</ion-label>
+          <ion-select [(ngModel)]="educacion" class="nivel-educacion">
+            <ion-select-option value="basica">Básica</ion-select-option>
+            <ion-select-option value="media">Media</ion-select-option>
+            <ion-select-option value="universitaria">Universitaria</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <mat-form-field appearance="fill" class="fecha-nac" style="width: 100%; margin-top: 16px;">
+          <mat-label>Fecha Nacimiento</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="fechaNacimiento">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="botones" style="margin-top: 24px;">
+          <ion-button class="color-vltstr" expand="block" (click)="limpiarCampos()">Limpiar</ion-button>
+          <ion-button class="color-vltstr" expand="block" (click)="registrar()" style="margin-top: 10px;">Mostrar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="color-vltstr">
+    <ion-title class="centrado">App desarrollada por</ion-title>
+  </ion-toolbar>
+</ion-footer>

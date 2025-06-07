@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar class="color-vltstr">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catálogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- por ahora solo habran dos categorias de productos: una de pantalones y otra de blusas/poleras -->
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="categorias-container">
+    <!-- tarjeta para pantalones -->
+    <ion-card class="categoria-card" routerLink="/pantalones">
+      <img src="assets/img/imghome/img2.jpg" alt="Pantalones" class="categoria-imagen">
+      <div class="categoria-overlay"></div>
+      <ion-card-header class="categoria-header">
+        <ion-card-title>Pantalones</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+     <!-- tarjeta para blusas/poleras -->
+    <ion-card class="categoria-card" routerLink="/blusas">
+      <img src="assets/img/blu3.jpg" alt="Blusas" class="categoria-imagen">
+      <div class="categoria-overlay"></div>
+      <ion-card-header class="categoria-header">
+        <ion-card-title>Blusas y poleras</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>

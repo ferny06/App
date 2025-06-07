@@ -1,57 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
+
+
+export interface ProductoRopa {
+  nombre: string;
+  precio: number;
+  imagenUrl: string;
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  standalone: false,
+  standalone: false
 })
-export class HomePage {
+export class HomePage implements OnInit {
   usuario: string='';
-  nombre: string='';
-  apellido: string='';
-  educacion: string='';
-  fechaNacimiento: string='';
+  
+  
+  productosDeRopa: ProductoRopa[] = [
+    {
+      nombre: 'Jeans desteñidos wide leg',
+      precio: 19990,
+      imagenUrl: 'assets/img/imghome/img2.jpg',
+    },
+    {
+      nombre: 'Chaleco cuello alto',
+      precio: 34990,
+      imagenUrl: 'assets/img/imghome/img1.jpg', 
+    },
+    {
+      nombre: 'Chaqueta oversize',
+      precio: 34990,
+      imagenUrl: 'assets/img/imghome/img8.jpg', 
+    },
+    {
+      nombre: 'Camiseta cuello alto',
+      precio: 34990,
+      imagenUrl: 'assets/img/imghome/img12.jpg', 
+    },
+    
+  ];
 
   constructor(private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private menu: MenuController
   ) {
     const nav = this.router.getCurrentNavigation();
     this.usuario = nav?.extras?.state?.['usuario'] || '';
 
 }
-// Muestra los datos en una alerta
-async mostrarDatos() {
-  const alert = await this.alertController.create({
-    header: 'Usuario',
-    message: `Su nombre es ${this.nombre} ${this.apellido}`,
-    buttons: ['Yes']
-  });
-  await alert.present();
-}
 
 
 
-  // Limpia todos los campos y aplica animación
-  limpiarCampos() {
-    this.nombre = '';
-    this.apellido = '';
-    this.educacion = '';
-    this.fechaNacimiento = '';
-
-    const campos = document.querySelectorAll('.animar-campo');
-    campos.forEach((campo) => {
-    campo.classList.remove('activar-animacion');
-    void (campo as HTMLElement).offsetWidth; // <- reinicia animación
-    campo.classList.add('activar-animacion');
-
-    setTimeout(() => {
-      campo.classList.remove('activar-animacion');
-    }, 1000);
-  });
-}
+ngOnInit() {
+  this.menu.close("mainMenu");
+  
   
 }
 
+}

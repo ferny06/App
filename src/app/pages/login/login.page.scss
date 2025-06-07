@@ -8,7 +8,7 @@
 }
 
 a {
-    color: #aa82f9; 
+    color: #d6c0f8; 
     font-size: 0.9rem;
     text-decoration: underline;
     cursor: pointer;
@@ -22,7 +22,7 @@ a {
   }
 
   .logo {
-    width: 150px; /* Tamaño de la imagen */
+    width: 150px; 
     height: auto;
     animation: zoomIn 3s ease-in-out infinite alternate;
   }
@@ -36,3 +36,25 @@ a {
         transform: scale(0.5); /* Zoom leve */
       }
     }
+
+    .color-vltstr {
+      background-color: #d9c7f3 !important;
+    --background: #d9c7f3  !important;     
+      color: white; 
+    }
+
+    ion-card-content {
+  text-align: center;
+  
+  .forgot-password {
+    color: #d9c7f3;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin: 10px 0;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
