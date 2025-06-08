@@ -53,12 +53,8 @@ export class HomePage implements OnInit {
 
 }
 
-
-
 ngOnInit() {
   this.menu.close("mainMenu");
-  
-  
-}
+  }
 
 }

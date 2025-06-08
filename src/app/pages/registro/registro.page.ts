@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FormatearFechaPipe } from 'src/app/pipes/formatear-fecha.pipe';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -21,11 +22,14 @@ export class RegistroPage {
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private formatearFechaPipe: FormatearFechaPipe
+    private formatearFechaPipe: FormatearFechaPipe,
+    private menu: MenuController
   ) {
     const nav = this.router.getCurrentNavigation();
     this.usuario = nav?.extras?.state?.['usuario'] || '';
   }
+
+  ngOnInit (){this.menu.close("mainMenu")};
 
   async mostrarAlerta(mensaje: string) {
     const alert = await this.alertController.create({
@@ -41,26 +45,37 @@ export class RegistroPage {
   const user = this.usuario.trim();
   const pass = this.password.trim();
 
+  
+    // para que nombre no pueda quedar vacío
   if (!this.nombre.trim()) {
     await this.mostrarAlerta('El campo de nombre no puede estar vacío.');
     return;
   }
-
+  
+  // para que apellido no pueda quedar vacío
   if (!this.apellido.trim()) {
     await this.mostrarAlerta('El campo de apellido no puede estar vacío.');
     return;
   }
 
+    // para que usuario no pueda quedar vacío
   if (!user) {
     await this.mostrarAlerta('El campo de usuario no puede estar vacío.');
     return;
   }
-
+  // para que contraseña no pueda quedar vacío
   if (!pass) {
     await this.mostrarAlerta('El campo de contraseña no puede estar vacío.');
     return;
   }
 
+  // validar que la fecha de nacimiento no esté vacía
+  if (!this.fechaNacimiento) {
+    await this.mostrarAlerta('El campo de fecha de nacimiento no puede estar vacío.');
+    return;
+  }
+
+    // para validar formatos
   if (!/^[a-zA-Z0-9]{3,8}$/.test(user)) {
     await this.mostrarAlerta('El usuario debe tener entre 3 y 8 caracteres alfanuméricos.');
     return;
@@ -71,7 +86,9 @@ export class RegistroPage {
     return;
   }
 
-  // Si todo está bien, mostramos los datos
+
+  
+  // si todo esta ok , se muestran los datos
   await this.mostrarDatos();
 }
 

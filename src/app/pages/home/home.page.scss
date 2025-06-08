@@ -128,17 +128,17 @@ input {
     
 
    
-  /* Contenedor de la lista de productos */
+  
 .product-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));  // Tarjetas más angostas
-  gap: 16px;  // Menor espacio entre tarjetas
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));  
+  gap: 16px;  
   padding: 12px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Estilo para cards */
+
 .product-card {
   margin: 10;
   border-radius: 8px;
@@ -153,19 +153,19 @@ input {
   object-fit: cover;
 }
 
-/* Encabezado de la tarjeta */
+
 ion-card-header {
   padding: 10px;
 }
 
-/* Título del producto */
+
 ion-card-title {
   font-size: 0.9rem;  
   font-weight: 500;
   margin-bottom: 2px;
 }
 
-/* Precio */
+
 ion-card-subtitle {
   color: #d9c7f3 ;
   font-size: 1rem;  
