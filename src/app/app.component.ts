@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,17 @@ import { MenuController } from '@ionic/angular';
   standalone: false,
 })
 export class AppComponent {
-  constructor(private menu: MenuController) {}
+  constructor(
+    private menu: MenuController, 
+    private router: Router,
+    private navCtrl: NavController
+  ) {}
 
-  //método para cerrar menu
-  closeMenu() {
-    this.menu.close('mainMenu');
+  async closeMenu() {
+    console.log('Cerrando sesión...');
+    localStorage.removeItem('username');
+    localStorage.removeItem('usuarioActivo');
+    await this.menu.close('mainMenu');
+    this.navCtrl.navigateRoot(['/login'], { replaceUrl: true });
   }
-
-  
 }
-

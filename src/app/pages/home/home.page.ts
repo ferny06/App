@@ -1,8 +1,7 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
-
 
 export interface ProductoRopa {
   nombre: string;
@@ -17,8 +16,7 @@ export interface ProductoRopa {
   standalone: false
 })
 export class HomePage implements OnInit {
-  usuario: string='';
-  
+  usuario: string = '';
   
   productosDeRopa: ProductoRopa[] = [
     {
@@ -41,20 +39,21 @@ export class HomePage implements OnInit {
       precio: 34990,
       imagenUrl: 'assets/img/imghome/img12.jpg', 
     },
-    
   ];
 
-  constructor(private router: Router,
-    private alertController: AlertController,
+  constructor(
+    private router: Router,
     private menu: MenuController
   ) {
-    const nav = this.router.getCurrentNavigation();
-    this.usuario = nav?.extras?.state?.['usuario'] || '';
-
-}
-
-ngOnInit() {
-  this.menu.close("mainMenu");
+    const storedUser = localStorage.getItem('usuarioActivo');
+    if (!storedUser) {
+      this.router.navigate(['/login']);
+    } else {
+    this.usuario = storedUser;
+    }
   }
 
+  ngOnInit() {
+    this.menu.close("mainMenu");
+  }
 }

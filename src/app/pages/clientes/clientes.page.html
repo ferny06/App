@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="color-vltstr"> 
+    <ion-buttons slot="end">
+        <ion-menu-button menu="mainMenu"></ion-menu-button>
+   </ion-buttons>  
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+   <ion-card *ngFor="let user of users">
+    <ion-item >
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.username }}</p>
+      </ion-label>
+    </ion-item>
+   </ion-card>
+  </div>
+
+  <!-- para agregar un nuevo usuario -->
+   <div>
+    <ion-card>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevoUsuario.name" placeholder="Ingresa nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input [(ngModel)]="nuevoUsuario.username" placeholder="Ingresa usuario"></ion-input>
+  </ion-item>
+  </ion-card>
+
+  </div>
+  <ion-button class="boton" (click)="agregarUsuario()">Agregar Usuario</ion-button>
+</ion-content>
