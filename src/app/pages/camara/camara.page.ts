@@ -22,12 +22,13 @@ export class CamaraPage implements OnInit {
   async captureImage() {
     try {
       const image = await Camera.getPhoto({
-        quality: 90,                          // Calidad de la imagen
-        resultType: CameraResultType.DataUrl, // Formato como Data URL para mostrar en HTML
-        source: CameraSource.Camera        // Fuente: Cámara
+        quality: 90,                          // calidad
+        resultType: CameraResultType.DataUrl, // formato url
+        source: CameraSource.Camera,   // fuente
+        allowEditing: true // para permitir editar foto
       });
 
-      this.capturedImage = image.dataUrl; // Guarda la imagen capturada para mostrarla
+      this.capturedImage = image.dataUrl; 
     } catch (error) {
       alert('Error al capturar imagen:'+' - '+ error);
     }
