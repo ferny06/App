@@ -48,7 +48,7 @@ export class RegistroPage {
     const user = this.usuario.trim();
     const pass = this.password.trim();
 
-    // Validaciones
+    // validaciones
     if (!this.nombre.trim()) {
       await this.mostrarAlerta('El campo de nombre no puede estar vacío.');
       return;

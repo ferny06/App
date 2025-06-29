@@ -12,12 +12,12 @@ export class ApiClientesService {
 
   constructor(private http: HttpClient) { }
 
-  // Método GET para obtener los usuarios
+  // método get para obtener usuarios
   getUsers(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
 
-  // Método POST para agregar un nuevo usuario
+  // metodo post para agregar nuevo usuario
   addUser(user: any): Observable<any> {
     return this.http.post(this.apiUrl, user);
   }

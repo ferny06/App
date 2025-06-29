@@ -14,7 +14,7 @@ export class BaseDeDatosService {
     private sqlite: SQLite,
     private platform: Platform
   ) {
-    // Verificar si estamos en la web
+    // verificar si estamos en la web
     this.isWeb = !this.platform.is('cordova');
     this.isDbReady = this.initializeDatabase();
   }
@@ -57,7 +57,7 @@ export class BaseDeDatosService {
         )`;
       
       if (this.isWeb) {
-        // Simular creación de tabla en web
+        // para simular creación de tabla en web
         if (!localStorage.getItem('users')) {
           localStorage.setItem('users', JSON.stringify([]));
         }

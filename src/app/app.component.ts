@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage-angular'; // 👈 Agrega esto
+
 
 @Component({
   selector: 'app-root',
@@ -9,23 +9,17 @@ import { Storage } from '@ionic/storage-angular'; // 👈 Agrega esto
   styleUrls: ['app.component.scss'],
   standalone: false,
 })
-export class AppComponent implements OnInit { // 👈 Implementa OnInit
+export class AppComponent {
   constructor(
-    private menu: MenuController,
+    private menu: MenuController, 
     private router: Router,
-    private navCtrl: NavController,
-    private storage: Storage // 👈 Inyecta Storage
+    private navCtrl: NavController
   ) {}
 
-  // Inicializar Storage al iniciar la app
-  async ngOnInit() {
-    await this.storage.create();
-  }
-
-  // Cerrar sesión correctamente usando Storage
   async closeMenu() {
     console.log('Cerrando sesión...');
-    await this.storage.remove('isLoggedIn'); // 👈 Esto ahora sí borra el estado de login
+    localStorage.removeItem('username');
+    localStorage.removeItem('usuarioActivo');
     await this.menu.close('mainMenu');
     this.navCtrl.navigateRoot(['/login'], { replaceUrl: true });
   }
